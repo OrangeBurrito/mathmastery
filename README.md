@@ -11,6 +11,8 @@ She select times tables and the selects what number to practice with 2 through 1
 
 When she is done she is rewarded with a graphic in addition the progress bar changes color.
 
+
+
 ## sample questions
 
 ### subtraction
@@ -29,3 +31,7 @@ When she is done she is rewarded with a graphic in addition the progress bar cha
   { expression:  '2 * 9', answer: 18 },
 ]
 ```
+
+### design
+
+* [coolors](https://coolors.co/1a535c-4ecdc4-f7fff7-ff6b6b-ffe66d)
