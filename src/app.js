@@ -1,27 +1,28 @@
+render()
 
+function render() {
+	document.body.appendChild(Header('Math Mastery'))
+	document.body.appendChild(ProblemSet(['3 * 2', '3 * 4', '3 * 5', '3 * 6', '3 * 7']))
+}
 
-document.body.appendChild(createHeader())
-document.body.appendChild(createProblemSet(['3 * 2', '3 * 4', '3 * 5', '3 * 6', '3 * 7']))
-
-
-function createHeader() {
+function Header(title) {
 	const header = document.createElement('header')
-	header.textContent = 'Math Mastery'
+	header.textContent = title
 	return header
 }
 
-l
-function createProblemSet(expressions) {
+
+function ProblemSet(expressions) {
 	const problemSet = document.createElement('section')
 	problemSet.classList.add('problem-set')
 
-	expressions.forEach(e => problemSet.appendChild(createQuestion(e)))
+	expressions.forEach(expression => problemSet.appendChild(Question(expression)))
 
 	return problemSet
 }
 
 
-function createQuestion(expression) {
+function Question(expression) {
 	const q = document.createElement('div')
 	q.className = 'question'
 	
