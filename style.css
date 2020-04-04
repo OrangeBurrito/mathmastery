@@ -20,8 +20,11 @@ body {
 }
 
 header {
-	background: var(--header-bg);
-	height: 5rem;
+	background-image: url('/public/banner.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 80px;
 	font-size: 2rem;
 
 	display: flex;
@@ -29,10 +32,15 @@ header {
 	align-items: center;
 }
 
+.wrap {
+	max-width: 960px;
+  margin: 0 auto;
+}
+
 .problem-set {
 	padding: 1rem;
 	display: grid;
-	grid-template-columns: repeat(4, 150px);
+	grid-template-columns: repeat(auto-fit,minmax(150px, 180px));
 	grid-gap: 1rem;
 	justify-content: center;
 }
