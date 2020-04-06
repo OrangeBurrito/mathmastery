@@ -1,6 +1,8 @@
 
+let selectedId = 1
 const problemSets = [
 	{
+		id: 1,
 		name: '2 times tables',
 		expressions: [
 			{ label: '2 * 2', answer: 4 },
@@ -11,6 +13,7 @@ const problemSets = [
 		]		
 	},
 	{
+		id: 2,
 		name: '3 times tables',
 		expressions: [
 			{ label: '3 * 2', answer: 6 },
@@ -20,13 +23,51 @@ const problemSets = [
 			{ label: '3 * 7', answer: 21 }
 		]		
 	},
+	{
+		id: 3,
+		name: '4 times tables',
+		expressions: [
+			{ label: '4 * 2', answer: 8 },
+			{ label: '4 * 4', answer: 16 }, 
+			{ label: '4 * 5', answer: 20 }, 
+			{ label: '4 * 6', answer: 24 }, 
+			{ label: '4 * 7', answer: 28 }
+		]		
+	},
 ]
 
-render(problemSets[1])
+render(problemSets, selectedId)
 
-function render(problemSet) {
-	document.body.appendChild(Header('Math Mastery ' + problemSet.name))
-  document.body.appendChild(ProblemSet(problemSet.expressions))
+function render(problemSets, selectedId) {
+	const body = document.body
+
+	body.appendChild(Header('Math Mastery'))
+	body.appendChild(Nav(problemSets))
+  body.appendChild(ProblemSet(problemSets[0].expressions))
+}
+
+function Nav(problemSets) {
+	const nav = document.createElement('nav')
+	nav.appendChild(ProblemSetSelector(problemSets))
+	return nav
+}
+
+function ProblemSetSelector(problemSets) {
+	const selectWrap = document.createElement('div')
+	selectWrap.className = 'select-wrap'
+
+	const select = document.createElement('select')
+
+	for (const set of problemSets) {
+		const option = document.createElement('option')
+		option.textContent = set.name
+		option.setAttribute('value', set.id)
+		select.append(option)
+	}
+
+	selectWrap.append(select)
+
+	return selectWrap
 }
 
 function Header(title) {
@@ -34,7 +75,6 @@ function Header(title) {
 	header.textContent = title
 	return header
 }
-
 
 function ProblemSet(expressions) {
 	const problemSet = document.createElement('section')
